@@ -22,6 +22,15 @@
     <meta property="og:url" content="https://pdmmarilao.bond/" />
     <meta property="og:type" content="website" />
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Pambayang Dalubhasaan ng Marilao (PDM)",
+        "alternateName": "PDM",
+        "url": "https://pdmmarilao.bond/"
+      }
+    </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=DynaPuff:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
@@ -50,7 +59,7 @@
               PDM
             </h1>
 
-            <p class="text-base max-lg:text-sm max-sm:text-xs">
+            <p class="text-base max-lg:text-sm max-sm:hidden">
               Pambayang Dalubhasaan ng Marilao (PDM)
             </p>
           </div>
@@ -64,7 +73,10 @@
             Login
           </a>
           <button type="button" class="burgerbtn">
-            <img src="../svg/hamburger.svg" class="w-10 hidden max-md:block" />
+            <img
+              src="../svg/hamburger.svg"
+              class="h-7 w-7 hidden max-md:block"
+            />
           </button>
         </div>
       </div>
@@ -158,25 +170,30 @@
         </p>
       </div>
     </footer>
+    <div
+      class="aside-overlay fixed inset-0 z-40 hidden bg-black/60 md:hidden"
+    ></div>
     <aside
       class="asidebar min-h-dvh w-75 fixed top-0 right-0 z-9999 bg-[#180F05] text-white translate-x-full transition-transform duration-300 ease-in-out"
     >
       <div>
-        <div class="flex flex-col p-5">
-          <div class="flex items-center justify-evenly mt-10">
-            <img src="/Pictures/pdm.png" class="w-20" />
-            <p class="w-[50%]">
-              PAMBAYANG DALUBHASAAN<span class="text-[#fda900]">
+        <div class="flex flex-col items-center justify-between px-5 pt-6">
+          <div class="flex items-center gap-4">
+            <img src="/Pictures/pdm.png" class="h-14 w-14 object-contain" />
+            <p class="w-[50%] text-sm font-semibold leading-5">
+              PAMBAYANG DALUBHASAAN<span class="block text-[#fda900]">
                 NG MARILAO</span
               >
             </p>
+            <button type="button" class="closebtn">
+              <img src="/svg/x-mark.svg" class="h-6 w-6" />
+            </button>
           </div>
           <div class="h-0.5 w-[90%] mx-auto bg-[#fda900]/20 my-5"></div>
-          <a href="login.html" class="text-[#fda900] text-lg">Login</a>
+          <a href="login.html" class="text-[#fda900] w-full text-lg text-start"
+            >Login</a
+          >
         </div>
-        <button type="button" class="closebtn">
-          <img src="/svg/x-mark.svg" class="w-10 absolute top-0 right-0 m-3" />
-        </button>
       </div>
     </aside>
     <script src="/src/script.js"></script>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Student Dashboard</title>
+
+    <link rel="icon" type="image/png" href="/Pictures/pdm.png" />
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <meta
+      name="description"
+      content="Access your Pambayang Dalubhasaan ng Marilao (PDM) student portal dashboard."
+    />
+
+    <meta
+      property="og:title"
+      content="Pambayang Dalubhasaan ng Marilao | PDM"
+    />
+
+    <meta
+      property="og:description"
+      content="student portal of Pambayang Dalubhasaan ng Marilao (PDM)."
+    />
+
+    <meta property="og:url" content="https://pdmmarilao.bond/" />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Pambayang Dalubhasaan ng Marilao (PDM)",
+        "alternateName": "PDM",
+        "url": "https://pdmmarilao.bond/"
+      }
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=DynaPuff:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+
+  <body class="bg-[#0F0800] font-[Montserrat] text-white">
+    <div class="flex min-h-dvh">
+      <aside
+        class="fixed inset-y-0 left-0 z-50 hidden w-64 shrink-0 bg-[#201205] md:block lg:w-72"
+      >
+        <div class="flex h-full flex-col justify-between">
+          <div class="mt-8 flex flex-col items-center">
+            <img
+              src="/Pictures/pdm.png"
+              class="h-20 w-20 object-contain"
+              alt="PDM"
+            />
+
+            <h1 class="mt-2 text-4xl font-extrabold">PDM</h1>
+
+            <h2 class="mt-1 text-center text-base font-semibold">
+              PAMBAYANG DALUBHASAAN
+              <span class="block text-[#fda900]">NG MARILAO</span>
+            </h2>
+
+            <a
+              href="#"
+              class="mt-8 flex w-[82%] cursor-pointer items-center gap-4 rounded-md bg-[#fda900] px-4 py-3 text-black"
+            >
+              <img src="/svg/home.svg" class="h-5 w-5" alt="Dashboard" />
+
+              <p class="text-sm font-semibold">Dashboard</p>
+            </a>
+          </div>
+
+          <div class="p-8">
+            <div class="mb-6 h-px w-full bg-[#fda900]/20"></div>
+
+            <a
+              href="/logout"
+              class="group flex cursor-pointer items-center gap-4 rounded-md border border-transparent px-3 py-2 text-sm text-white transition duration-200 hover:border-white hover:bg-white hover:text-black"
+            >
+              <img
+                src="/svg/logout.svg"
+                class="h-6 w-6 transition duration-200 group-hover:brightness-0"
+                alt="Logout"
+              />
+
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <div
+        class="aside-overlay fixed inset-0 z-40 hidden bg-black/60 md:hidden"
+      ></div>
+
+      <aside
+        class="asidebar fixed inset-y-0 left-0 z-50 w-72 -translate-x-full bg-[#180F05] text-white transition-transform duration-300 ease-in-out md:hidden"
+      >
+        <div class="flex h-full flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between px-5 pt-6">
+              <div class="flex items-center gap-4">
+                <img
+                  src="/Pictures/pdm.png"
+                  class="h-14 w-14 object-contain"
+                  alt="PDM"
+                />
+
+                <p class="text-sm font-semibold leading-5">
+                  PAMBAYANG DALUBHASAAN
+                  <span class="block text-[#fda900]">NG MARILAO</span>
+                </p>
+              </div>
+
+              <button type="button" class="closebtn cursor-pointer">
+                <img src="/svg/x-mark.svg" class="h-6 w-6" alt="Close" />
+              </button>
+            </div>
+
+            <div class="mx-auto my-5 h-px w-[90%] bg-[#fda900]/20"></div>
+
+            <a
+              href="#"
+              class="mx-auto flex w-[85%] cursor-pointer items-center gap-4 rounded-md bg-[#fda900] px-4 py-3 text-black"
+            >
+              <img src="/svg/home.svg" class="h-5 w-5" alt="Dashboard" />
+
+              <p class="text-sm font-semibold">Dashboard</p>
+            </a>
+          </div>
+
+          <div class="p-6">
+            <div class="mb-5 h-px w-full bg-[#fda900]/20"></div>
+
+            <a
+              href="/logout"
+              class="group flex cursor-pointer items-center gap-4 rounded-md border border-transparent px-3 py-2 text-sm text-white transition duration-200 hover:border-white hover:bg-white hover:text-black"
+            >
+              <img
+                src="/svg/logout.svg"
+                class="h-6 w-6 transition duration-200 group-hover:brightness-0"
+                alt="Logout"
+              />
+
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="min-w-0 flex-1 bg-[#0F0800] md:ml-64 lg:ml-72">
+        <div
+          class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10"
+        >
+          <div class="mb-7 flex items-center gap-4 md:hidden">
+            <button type="button" class="burgerbtn cursor-pointer">
+              <img src="/svg/hamburger.svg" class="h-7 w-7" alt="Menu" />
+            </button>
+
+            <img
+              src="/Pictures/pdm.png"
+              class="h-10 w-10 object-contain"
+              alt="PDM"
+            />
+
+            <p class="font-semibold">PDM</p>
+          </div>
+
+          <h1 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">
+            Dashboard
+          </h1>
+
+          <section
+            class="relative mx-auto mt-7 w-full max-w-6xl rounded-xl border border-[#fda900]/20 bg-[#130b02] p-5 sm:mt-8 sm:p-6 lg:mt-10 lg:p-8"
+          >
+            <button
+              type="button"
+              class="edit-profile-btn absolute right-4 top-4 flex cursor-pointer items-center gap-2 rounded-md border border-[#fda900] px-3 py-2 text-xs text-[#fda900] transition hover:bg-[#fda900] hover:text-black sm:right-6 sm:top-6 sm:px-4 sm:py-2"
+            >
+              <img src="/svg/pencil.svg" class="h-4 w-4" alt="Edit" />
+
+              <span class="text-sm font-semibold">Edit Profile</span>
+            </button>
+
+            <div
+              class="flex flex-col gap-8 pt-16 sm:pt-18 lg:flex-row lg:items-center lg:gap-12 lg:pt-8"
+            >
+              <div
+                class="flex shrink-0 flex-col items-center border-b border-[#fda900]/20 pb-8 lg:w-52 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-10"
+              >
+                <div
+                  class="flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-[#3b3b3b] sm:h-32 sm:w-32"
+                >
+                  <img
+                    src="/svg/userdashboard.svg"
+                    class="profile-photo h-20 w-20 object-contain sm:h-24 sm:w-24"
+                    alt=""
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  class="change-photo-btn mt-4 flex cursor-pointer items-center gap-2 rounded-md border border-[#fda900] px-4 py-2 text-xs text-[#fda900] transition hover:bg-[#fda900] hover:text-black"
+                >
+                  <img src="/svg/camera.svg" class="h-4 w-4" alt="Camera" />
+
+                  <span class="text-sm font-semibold">Change Photo</span>
+                </button>
+
+                <input
+                  type="file"
+                  class="photo-input hidden"
+                  accept="image/png, image/jpeg"
+                />
+
+                <p class="mt-2 text-xs text-white/60">JPG, PNG (Max 5MB)</p>
+              </div>
+
+              <div class="w-full min-w-0 flex-1">
+                <div
+                  class="grid grid-cols-1 gap-5 text-sm sm:gap-6 sm:text-base lg:grid-cols-[170px_20px_minmax(0,1fr)] lg:gap-y-6"
+                >
+                  <p class="text-white/60">Full Name</p>
+
+                  <p class="hidden text-white/40 lg:block">:</p>
+
+                  <p class="font-medium">John Dildoe</p>
+
+                  <p class="text-white/60">Student Number</p>
+
+                  <p class="hidden text-white/40 lg:block">:</p>
+
+                  <p class="font-medium">2023-00123</p>
+
+                  <p class="text-white/60">Email Address</p>
+
+                  <p class="hidden text-white/40 lg:block">:</p>
+
+                  <p class="break-all font-medium">
+                    john.dildoe@pdmmarilao.bond
+                  </p>
+
+                  <p class="text-white/60">Parent Email</p>
+
+                  <p class="hidden text-white/40 lg:block">:</p>
+
+                  <p class="break-all font-medium">parent.john@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="mx-auto mt-5 w-full max-w-3xl rounded-xl border border-[#fda900]/20 bg-[#130b02] p-6 sm:mt-6 sm:p-7"
+          >
+            <div class="flex items-center gap-5">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-[#fda900]/15"
+              >
+                <img src="/svg/team.svg" class="h-7 w-7" alt="Join Class" />
+              </div>
+
+              <div class="min-w-0">
+                <h2 class="text-xl font-semibold sm:text-2xl">Join a Class</h2>
+
+                <p class="mt-1 text-sm leading-5 text-white/70">
+                  Enter the class code given by your teacher to join their
+                  class.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-5 flex gap-3 sm:ml-16">
+              <div
+                class="flex h-12 min-w-0 flex-1 items-center rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4"
+              >
+                <img
+                  src="/svg/key.svg"
+                  class="mr-3 h-5 w-5 shrink-0"
+                  alt="Class Code"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Enter class code"
+                  class="min-w-0 w-full bg-transparent text-sm text-white outline-none placeholder:text-white/40 sm:text-base"
+                />
+              </div>
+
+              <button
+                type="button"
+                class="h-12 shrink-0 cursor-pointer rounded-md bg-[#fda900] px-6 text-sm font-semibold text-black transition hover:bg-[#ffb82e]"
+              >
+                Join Class
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="profile-overlay fixed inset-0 z-40 hidden bg-black/60"></div>
+
+    <div
+      class="profile-modal fixed left-1/2 top-1/2 z-50 hidden w-[90%] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[#fda900]/20 bg-[#130b02] p-6 shadow-2xl sm:p-8"
+    >
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold sm:text-2xl">Edit Profile</h2>
+
+        <button type="button" class="profile-close-btn cursor-pointer">
+          <img src="/svg/x-mark.svg" class="h-6 w-6" alt="Close" />
+        </button>
+      </div>
+
+      <div class="mt-6 space-y-4">
+        <div>
+          <label class="mb-2 block text-sm text-white/70"> Full Name </label>
+
+          <input
+            type="text"
+            value="John Dildoe"
+            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+          />
+        </div>
+
+        <div>
+          <label class="mb-2 block text-sm text-white/70">
+            Student Number
+          </label>
+
+          <input
+            type="text"
+            value="2023-00123"
+            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+          />
+        </div>
+
+        <div>
+          <label class="mb-2 block text-sm text-white/70">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            value="john.dildoe@pdmmarilao.bond"
+            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+          />
+        </div>
+
+        <div>
+          <label class="mb-2 block text-sm text-white/70"> Parent Email </label>
+
+          <input
+            type="email"
+            value="parent.john@gmail.com"
+            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+          />
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button
+          type="button"
+          class="profile-cancel-btn cursor-pointer rounded-md border border-white/30 px-4 py-2 text-sm text-white transition hover:bg-white hover:text-black"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="cursor-pointer rounded-md bg-[#fda900] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#ffb82e]"
+        >
+          Save Changes
+        </button>
+      </div>
+    </div>
+
+    <script src="/src/dashboard.js"></script>
+  </body>
+</html>

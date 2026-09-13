@@ -21,11 +21,12 @@ signupForm.addEventListener("submit", async (event) => {
   const formData = new URLSearchParams(new FormData(signupForm));
 
   try {
-    const response = await fetch("http://127.0.0.1:3000/signup", {
+    const response = await fetch("/signup", {
       method: "POST",
       body: formData,
     });
 
+    console.log(response);
     if (response.status === 409) {
       emailError.textContent = "Email is Already Registered.";
       emailError.classList.remove("hidden");
@@ -40,7 +41,7 @@ signupForm.addEventListener("submit", async (event) => {
       return;
     }
 
-    window.location.href = "http://127.0.0.1:3000/login.html";
+    window.location.href = "https://pdmmarilao.bond/login.html";
   } catch (error) {
     emailError.textContent = "Unable to connect to the server.";
     emailError.classList.remove("hidden");

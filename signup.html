@@ -35,8 +35,7 @@
   <body class="bg-[#180E06] font-[Montserrat] text-white">
     <main class="flex justify-center items-center min-h-dvh">
       <form
-        id="signupForm"
-        class="border border-[#fda900]/40 rounded-xl p-5 w-[90%] max-w-md"
+        class="signupForm border border-[#fda900]/40 rounded-xl p-5 w-[90%] max-w-md"
       >
         <div class="flex flex-col">
           <div
@@ -85,10 +84,10 @@
                   name="email"
                   required
                   type="email"
-                  class="w-full focus:outline-none focus:ring-0 text-base"
+                  class="emailinput w-full focus:outline-none focus:ring-0 text-base"
                 />
               </div>
-              <p id="emailError" class="text-red-400 text-sm mt-1"></p>
+              <p id="emailError" class="text-red-400 text-sm mt-1 hidden"></p>
             </div>
             <div class="flex flex-col">
               <label class="mb-1 max-sm:text-sm">Password</label>

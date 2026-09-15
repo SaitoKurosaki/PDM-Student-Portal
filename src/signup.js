@@ -1,7 +1,7 @@
 const showpass = document.querySelectorAll(".showpass");
-const signupForm = document.querySelector("#signupForm");
+const signupForm = document.querySelector(".signupForm");
 const emailError = document.querySelector("#emailError");
-
+const emailinput = document.querySelector(".emailinput");
 showpass.forEach((pass) => {
   const inputpass = pass.parentElement.querySelector("input");
   pass.addEventListener("click", () => {
@@ -15,6 +15,10 @@ showpass.forEach((pass) => {
   });
 });
 
+emailinput.addEventListener("input", () => {
+  emailError.classList.add("hidden");
+});
+
 signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -26,18 +30,15 @@ signupForm.addEventListener("submit", async (event) => {
       body: formData,
     });
 
-    console.log(response);
     if (response.status === 409) {
       emailError.textContent = "Email is Already Registered.";
       emailError.classList.remove("hidden");
-
       return;
     }
 
     if (!response.ok) {
       emailError.textContent = "Something went wrong.";
       emailError.classList.remove("hidden");
-
       return;
     }
 

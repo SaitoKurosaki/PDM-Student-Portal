@@ -19,15 +19,16 @@ emailinput.addEventListener("input", () => {
 });
 
 inputpass.addEventListener("input", () => {
-  passwordError.classList.remove("hidden");
+  passwordError.classList.add("hidden");
 });
+
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formdata = new URLSearchParams(new FormData(loginForm));
 
   try {
-    const response = await fetch("/login", {
+    const response = await fetch("http://127.0.0.1:3000/login", {
       method: "POST",
       body: formdata,
     });

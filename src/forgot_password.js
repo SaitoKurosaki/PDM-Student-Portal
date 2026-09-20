@@ -11,7 +11,7 @@ forgotForm.addEventListener("submit", async (event) => {
   const formdata = new URLSearchParams(new FormData(forgotForm));
 
   try {
-    const response = await fetch("http://127.0.0.1:3000/forgot_password", {
+    const response = await fetch("/forgot_password", {
       method: "POST",
       body: formdata,
     });

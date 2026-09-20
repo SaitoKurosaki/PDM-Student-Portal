@@ -10,6 +10,57 @@ const profileCancelBtn = document.querySelector(".profile-cancel-btn");
 const changePhotoBtn = document.querySelector(".change-photo-btn");
 const photoInput = document.querySelector(".photo-input");
 const profilePhoto = document.querySelector(".profile-photo");
+const studentname = document.querySelector(".studentname");
+const studentnumber = document.querySelector(".studentnumber");
+const studentemail = document.querySelector(".studentemail");
+const parentemail = document.querySelector(".parentemail");
+const btnlogout = document.querySelector(".btnlogout");
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("/check_session", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const studentResponse = await fetch("/student_data", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (!studentResponse.ok) {
+      console.error("Failed to get student data");
+      return;
+    }
+
+    const student = await studentResponse.json();
+    studentname.textContent = student.full_name;
+    studentemail.textContent = student.email;
+    parentemail.textContent = student?.parent_email ?? "";
+    studentnumber.textContent = student?.student_number ?? "";
+  } catch (error) {
+    console.error(error);
+    window.location.href = "login.html";
+  }
+});
+
+btnlogout.addEventListener("click", async () => {
+  try {
+    const logout = await fetch("/logout", {
+      method: "post",
+      credentials: "include",
+    });
+    window.location.href = "login.html";
+  } catch (error) {
+    return;
+  }
+});
+
 burgerbtn.addEventListener("click", () => {
   asidebar.classList.remove("-translate-x-full");
 

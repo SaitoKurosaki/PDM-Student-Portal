@@ -28,9 +28,10 @@ loginForm.addEventListener("submit", async (event) => {
   const formdata = new URLSearchParams(new FormData(loginForm));
 
   try {
-    const response = await fetch("http://127.0.0.1:3000/login", {
+    const response = await fetch("/login", {
       method: "POST",
       body: formdata,
+      credentials: "include",
     });
     if (response.status === 404) {
       emailError.textContent = "Account Not Found.";
@@ -48,6 +49,8 @@ loginForm.addEventListener("submit", async (event) => {
       emailError.textContent = "Something went wrong.";
       emailError.classList.remove("hidden");
     }
+
+    window.location.href = "dashboard.html";
   } catch (error) {
     console.error(error);
     emailError.textContent = "Unable to connect to the server.";

@@ -42,7 +42,7 @@ signupForm.addEventListener("submit", async (event) => {
       return;
     }
 
-    window.location.href = "https://pdmmarilao.bond/login.html";
+    window.location.href = "login.html";
   } catch (error) {
     emailError.textContent = "Unable to connect to the server.";
     emailError.classList.remove("hidden");

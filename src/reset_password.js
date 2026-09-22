@@ -1,7 +1,13 @@
 const resetForm = document.querySelector(".resetForm");
 const showpass = document.querySelector(".showpass");
 const inputpass = document.querySelector(".inputpass");
+const successstatus = document.querySelector(".successstatus");
+const resetBtn = document.querySelector("#resetBtn");
+const resetBtnText = document.querySelector("#resetBtnText");
+const resetLoading = document.querySelector("#resetLoading");
+
 const params = new URLSearchParams(window.location.search);
+
 const token = params.get("token");
 
 showpass.addEventListener("click", () => {
@@ -12,6 +18,10 @@ showpass.addEventListener("click", () => {
     showpass.src = "/svg/closedeye.svg";
     inputpass.type = "password";
   }
+});
+
+inputpass.addEventListener("input", () => {
+  successstatus.classList.add("hidden");
 });
 document.addEventListener("DOMContentLoaded", async () => {
   if (!token) {
@@ -28,6 +38,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 resetForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  resetBtn.disabled = true;
+  resetBtn.classList.add("opacity-70", "cursor-not-allowed");
+  resetBtnText.classList.add("hidden");
+  resetLoading.classList.remove("hidden");
+  resetLoading.classList.add("flex");
   const formdata = new URLSearchParams(new FormData(resetForm));
 
   formdata.append("token", token);
@@ -38,8 +53,19 @@ resetForm.addEventListener("submit", async (event) => {
       body: formdata,
     });
 
-    console.log(response);
+    if (!response.ok) {
+      emailError.textContent = "Something went wrong.";
+      emailError.classList.remove("hidden");
+      return;
+    }
+    successstatus.classList.remove("hidden");
   } catch (error) {
     return;
+  } finally {
+    resetBtn.disabled = false;
+    resetBtn.classList.remove("opacity-70", "cursor-not-allowed");
+    resetBtnText.classList.remove("hidden");
+    resetLoading.classList.add("hidden");
+    resetLoading.classList.remove("flex");
   }
 });

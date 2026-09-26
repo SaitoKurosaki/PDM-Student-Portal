@@ -3,6 +3,9 @@ const asidebar = document.querySelector(".asidebar");
 const burgerbtn = document.querySelector(".burgerbtn");
 const closebtn = document.querySelector(".closebtn");
 const overlay = document.querySelector(".aside-overlay");
+
+gsap.from(".mainhead", { duration: 1, x: "-100%" });
+
 date.textContent = new Date().getFullYear();
 
 burgerbtn.addEventListener("click", () => {

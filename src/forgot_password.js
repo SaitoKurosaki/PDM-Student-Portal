@@ -5,7 +5,12 @@ const successstatus = document.querySelector(".successstatus");
 const resetBtn = document.querySelector("#resetBtn");
 const resetBtnText = document.querySelector("#resetBtnText");
 const resetLoading = document.querySelector("#resetLoading");
-
+gsap.from(".forgotForm", {
+  opacity: 0,
+  y: 40,
+  duration: 0.8,
+  ease: "power3.out",
+});
 emailinput.addEventListener("input", () => {
   emailError.classList.add("hidden");
   successstatus.classList.add("hidden");

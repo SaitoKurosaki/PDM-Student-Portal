@@ -2,6 +2,12 @@ const showpass = document.querySelectorAll(".showpass");
 const signupForm = document.querySelector(".signupForm");
 const emailError = document.querySelector("#emailError");
 const emailinput = document.querySelector(".emailinput");
+gsap.from(".signupForm", {
+  opacity: 0,
+  y: 40,
+  duration: 0.8,
+  ease: "power3.out",
+});
 showpass.forEach((pass) => {
   const inputpass = pass.parentElement.querySelector("input");
   pass.addEventListener("click", () => {

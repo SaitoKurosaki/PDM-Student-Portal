@@ -4,6 +4,13 @@ const loginForm = document.querySelector(".loginForm");
 const emailError = document.querySelector("#emailError");
 const emailinput = document.querySelector(".emailinput");
 const passwordError = document.querySelector(".passwordError");
+
+gsap.from(".loginForm", {
+  opacity: 0,
+  y: 40,
+  duration: 0.8,
+  ease: "power3.out",
+});
 showpass.addEventListener("click", () => {
   if (showpass.src.includes("closedeye.svg")) {
     showpass.src = "../svg/openeye.svg";

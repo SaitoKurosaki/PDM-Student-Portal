@@ -69,13 +69,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     parentemail.textContent = student?.parent_email ?? "";
     studentnumber.textContent = student?.student_number ?? "";
     profilePhoto.src = student?.profilephotos ?? "/svg/userdashboard.svg";
-    profilePhoto.classList.remove(
-      "h-20",
-      "w-20",
-      "object-contain",
-      "sm:h-24",
-      "sm:w-24",
-    );
+    if (student?.profilephotos) {
+      profilePhoto.classList.remove(
+        "h-20",
+        "w-20",
+        "object-contain",
+        "sm:h-24",
+        "sm:w-24",
+      );
+    }
   } catch (error) {
     console.error(error);
     window.location.href = "login.html";

@@ -4,7 +4,12 @@ const burgerbtn = document.querySelector(".burgerbtn");
 const closebtn = document.querySelector(".closebtn");
 const overlay = document.querySelector(".aside-overlay");
 
-gsap.from(".mainhead", { duration: 1, x: "-100%" });
+gsap.from(".mainhead", {
+  x: "-100%",
+  opacity: 0,
+  duration: 1,
+  ease: "power3.out",
+});
 
 date.textContent = new Date().getFullYear();
 

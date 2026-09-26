@@ -29,7 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const response = await fetch(`/check_reset_token?token=${token}`);
+  const response = await fetch(
+    `http://127.0.0.1:3000/check_reset_token?token=${token}`,
+  );
 
   if (!response.ok) {
     window.location.href = "index.html";

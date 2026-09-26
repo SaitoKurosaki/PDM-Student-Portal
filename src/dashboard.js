@@ -15,6 +15,31 @@ const studentnumber = document.querySelector(".studentnumber");
 const studentemail = document.querySelector(".studentemail");
 const parentemail = document.querySelector(".parentemail");
 const btnlogout = document.querySelector(".btnlogout");
+const updateform = document.querySelector("#updateform");
+let profilePhotoData = null;
+updateform.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new URLSearchParams(new FormData(updateform));
+
+  if (profilePhotoData) {
+    formData.append("profilePhotoData", profilePhotoData);
+  }
+
+  try {
+    const response = await fetch("/updateinfor", {
+      method: "POST",
+      body: formData,
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      location.reload();
+    }
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -43,6 +68,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     studentemail.textContent = student.email;
     parentemail.textContent = student?.parent_email ?? "";
     studentnumber.textContent = student?.student_number ?? "";
+    profilePhoto.src = student?.profilephotos ?? "/svg/userdashboard.svg";
+    profilePhoto.classList.remove(
+      "h-20",
+      "w-20",
+      "object-contain",
+      "sm:h-24",
+      "sm:w-24",
+    );
   } catch (error) {
     console.error(error);
     window.location.href = "login.html";
@@ -55,7 +88,7 @@ btnlogout.addEventListener("click", async () => {
       method: "post",
       credentials: "include",
     });
-    window.location.href = "login.html";
+    window.location.replace("login.html");
   } catch (error) {
     return;
   }
@@ -107,7 +140,7 @@ changePhotoBtn.addEventListener("click", () => {
   photoInput.click();
 });
 
-photoInput.addEventListener("change", () => {
+photoInput.addEventListener("change", async () => {
   const file = photoInput.files[0];
 
   if (!file) {
@@ -122,18 +155,28 @@ photoInput.addEventListener("change", () => {
 
   const reader = new FileReader();
 
-  reader.addEventListener("load", () => {
-    profilePhoto.src = reader.result;
+  reader.addEventListener("load", async () => {
+    profilePhotoData = reader.result;
+    profilePhoto.src = profilePhotoData;
 
-    profilePhoto.classList.remove(
-      "h-20",
-      "w-20",
-      "object-contain",
-      "sm:h-24",
-      "sm:w-24",
-    );
+    try {
+      const formData = new URLSearchParams();
 
-    profilePhoto.classList.add("h-full", "w-full", "object-cover");
+      formData.append("profilePhotoData", profilePhotoData);
+
+      const response = await fetch("/updateinfo", {
+        method: "POST",
+        body: formData,
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        alert("Failed to update profile picture.");
+        return;
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+    }
   });
 
   reader.readAsDataURL(file);

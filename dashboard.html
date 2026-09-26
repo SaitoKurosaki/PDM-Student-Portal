@@ -212,6 +212,7 @@
                   type="file"
                   class="photo-input hidden"
                   accept="image/png, image/jpeg"
+                  name="profilephoto"
                 />
 
                 <p class="mt-2 text-xs text-white/60">JPG, PNG (Max 5MB)</p>
@@ -310,54 +311,46 @@
           <img src="/svg/x-mark.svg" class="h-6 w-6" alt="Close" />
         </button>
       </div>
+      <form id="updateform">
+        <div class="mt-6 space-y-4">
+          <div>
+            <label class="mb-2 block text-sm text-white/70"> Full Name </label>
 
-      <div class="mt-6 space-y-4">
-        <div>
-          <label class="mb-2 block text-sm text-white/70"> Full Name </label>
+            <input
+              type="text"
+              placeholder="Manuel Porcincula"
+              name="fullname"
+              class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+            />
+          </div>
 
-          <input
-            type="text"
-            value="John Dildoe"
-            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
-          />
+          <div>
+            <label class="mb-2 block text-sm text-white/70">
+              Student Number
+            </label>
+
+            <input
+              type="text"
+              placeholder="2023-00123"
+              name="studentnumber"
+              class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+            />
+          </div>
+
+          <div>
+            <label class="mb-2 block text-sm text-white/70">
+              Parent Email
+            </label>
+
+            <input
+              type="email"
+              name="parentemail"
+              placeholder="manuelporcinculax@gmail.com"
+              class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
+            />
+          </div>
         </div>
-
-        <div>
-          <label class="mb-2 block text-sm text-white/70">
-            Student Number
-          </label>
-
-          <input
-            type="text"
-            value="2023-00123"
-            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
-          />
-        </div>
-
-        <div>
-          <label class="mb-2 block text-sm text-white/70">
-            Email Address
-          </label>
-
-          <input
-            type="email"
-            value="john.dildoe@pdmmarilao.bond"
-            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
-          />
-        </div>
-
-        <div>
-          <label class="mb-2 block text-sm text-white/70"> Parent Email </label>
-
-          <input
-            type="email"
-            value="parent.john@gmail.com"
-            class="w-full rounded-md border border-[#fda900]/40 bg-[#0F0800] px-4 py-3 text-sm text-white outline-none focus:border-[#fda900]"
-          />
-        </div>
-      </div>
-
-      <div class="mt-6 flex justify-end gap-3">
+        <div class="mt-6 flex justify-end gap-3">
         <button
           type="button"
           class="profile-cancel-btn cursor-pointer rounded-md border border-white/30 px-4 py-2 text-sm text-white transition hover:bg-white hover:text-black"
@@ -366,13 +359,16 @@
         </button>
 
         <button
-          type="button"
+          type="submit"
           class="cursor-pointer rounded-md bg-[#fda900] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#ffb82e]"
         >
           Save Changes
         </button>
       </div>
     </div>
+      </form>
+
+      
 
     <script src="/src/dashboard.js"></script>
   </body>

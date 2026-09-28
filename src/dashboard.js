@@ -27,7 +27,7 @@ updateform.addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("/updateinfor", {
+    const response = await fetch("/updateinfo", {
       method: "POST",
       body: formData,
       credentials: "include",
